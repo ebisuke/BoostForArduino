@@ -31,7 +31,7 @@ namespace boost
 
     //  BOOST_ASSERT() checked polymorphic downcast.  Crosscasts prohibited.
     //  Supports any type with static_pointer_cast/dynamic_pointer_cast functions:
-    //  built-in pointers, std::shared_ptr, boost::shared_ptr, boost::intrusive_ptr, etc.
+    //  built-in pointers, boost::shared_ptr, boost::shared_ptr, boost::intrusive_ptr, etc.
 
     //  WARNING: Because this cast uses BOOST_ASSERT(), it violates
     //  the One Definition Rule if used in multiple translation units

@@ -76,7 +76,7 @@ struct seed {
 #define BOOST_TEST_DATASET_VARIADIC
 template <class T>
 struct parameter_holder {
-    std::shared_ptr<T> value;
+    boost::shared_ptr<T> value;
 
     parameter_holder(T && value_)
         : value(std::make_shared<T>(std::move(value_)))

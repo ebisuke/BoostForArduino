@@ -54,7 +54,7 @@ public:
     auto integrate(const F f, Real tolerance = tools::root_epsilon<Real>(), Real* error = nullptr, Real* L1 = nullptr, std::size_t* levels = nullptr) ->decltype(Real(std::declval<F>()(std::declval<Real>(), std::declval<Real>()))) const;
 
 private:
-    std::shared_ptr<detail::tanh_sinh_detail<Real, Policy>> m_imp;
+    boost::shared_ptr<detail::tanh_sinh_detail<Real, Policy>> m_imp;
 };
 
 template<class Real, class Policy>

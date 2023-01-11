@@ -21,7 +21,7 @@ namespace boost { namespace process { namespace detail {
 
 inline std::function<void(int, const std::error_code &)> on_exit_from_future(std::future<int> &f)
 {
-    std::shared_ptr<std::promise<int>> promise = std::make_shared<std::promise<int>>();
+    boost::shared_ptr<std::promise<int>> promise = std::make_shared<std::promise<int>>();
     f = promise->get_future();
     return [promise](int code, const std::error_code & ec)
             {

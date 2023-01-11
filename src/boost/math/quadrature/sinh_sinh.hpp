@@ -36,7 +36,7 @@ public:
     }
 
 private:
-    std::shared_ptr<detail::sinh_sinh_detail<Real, Policy>> m_imp;
+    boost::shared_ptr<detail::sinh_sinh_detail<Real, Policy>> m_imp;
 };
 
 }}}

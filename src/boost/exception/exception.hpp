@@ -14,7 +14,7 @@
 
 #ifdef BOOST_EXCEPTION_MINI_BOOST
 #include  <memory>
-namespace boost { namespace exception_detail { using std::shared_ptr; } }
+namespace boost { namespace exception_detail { using boost::shared_ptr; } }
 #else
 namespace boost { template <class T> class shared_ptr; };
 namespace boost { namespace exception_detail { using boost::shared_ptr; } }

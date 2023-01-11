@@ -49,7 +49,7 @@ struct async_out_buffer : ::boost::process::detail::posix::handler_base_ext,
 {
     Buffer & buf;
 
-    std::shared_ptr<boost::process::async_pipe> pipe;
+    boost::shared_ptr<boost::process::async_pipe> pipe;
 
 
     async_out_buffer(Buffer & buf) : buf(buf)
@@ -99,11 +99,11 @@ template<int p1, int p2, typename Type>
 struct async_out_future : ::boost::process::detail::posix::handler_base_ext,
                           ::boost::process::detail::posix::require_io_context
 {
-    std::shared_ptr<std::promise<Type>> promise = std::make_shared<std::promise<Type>>();
+    boost::shared_ptr<std::promise<Type>> promise = std::make_shared<std::promise<Type>>();
 
-    std::shared_ptr<boost::asio::streambuf> buffer = std::make_shared<boost::asio::streambuf>();
+    boost::shared_ptr<boost::asio::streambuf> buffer = std::make_shared<boost::asio::streambuf>();
 
-    std::shared_ptr<boost::process::async_pipe> pipe;
+    boost::shared_ptr<boost::process::async_pipe> pipe;
 
     async_out_future(std::future<Type> & fut)
     {

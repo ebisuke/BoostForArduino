@@ -36,9 +36,9 @@ namespace boost
       typedef boost::shared_ptr<T> shared_type;
     };
 #ifndef BOOST_NO_CXX11_SMART_PTR
-    template<typename T> struct weak_ptr_traits<std::weak_ptr<T> >
+    template<typename T> struct weak_ptr_traits<boost::weak_ptr<T> >
     {
-      typedef std::shared_ptr<T> shared_type;
+      typedef boost::shared_ptr<T> shared_type;
     };
 #endif
 
@@ -50,9 +50,9 @@ namespace boost
       typedef boost::weak_ptr<T> weak_type;
     };
 #ifndef BOOST_NO_CXX11_SMART_PTR
-    template<typename T> struct shared_ptr_traits<std::shared_ptr<T> >
+    template<typename T> struct shared_ptr_traits<boost::shared_ptr<T> >
     {
-      typedef std::weak_ptr<T> weak_type;
+      typedef boost::weak_ptr<T> weak_type;
     };
 #endif
 

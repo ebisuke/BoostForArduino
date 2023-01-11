@@ -53,24 +53,24 @@ inline T* reinterpret_pointer_cast(U *ptr) BOOST_SP_NOEXCEPT
 
 namespace boost {
 
-//static_pointer_cast overload for std::shared_ptr
+//static_pointer_cast overload for boost::shared_ptr
 using std::static_pointer_cast;
 
-//dynamic_pointer_cast overload for std::shared_ptr
+//dynamic_pointer_cast overload for boost::shared_ptr
 using std::dynamic_pointer_cast;
 
-//const_pointer_cast overload for std::shared_ptr
+//const_pointer_cast overload for boost::shared_ptr
 using std::const_pointer_cast;
 
-//reinterpret_pointer_cast overload for std::shared_ptr
-template<class T, class U> std::shared_ptr<T> reinterpret_pointer_cast(const std::shared_ptr<U> & r ) BOOST_SP_NOEXCEPT
+//reinterpret_pointer_cast overload for boost::shared_ptr
+template<class T, class U> boost::shared_ptr<T> reinterpret_pointer_cast(const boost::shared_ptr<U> & r ) BOOST_SP_NOEXCEPT
 {
     (void) reinterpret_cast< T* >( static_cast< U* >( 0 ) );
 
-    typedef typename std::shared_ptr<T>::element_type E;
+    typedef typename boost::shared_ptr<T>::element_type E;
 
     E * p = reinterpret_cast< E* >( r.get() );
-    return std::shared_ptr<T>( r, p );
+    return boost::shared_ptr<T>( r, p );
 }
 
 //static_pointer_cast overload for std::unique_ptr

@@ -101,7 +101,7 @@ class chunk_size
         }
     };
 
-    std::shared_ptr<sequence> sp_;
+    boost::shared_ptr<sequence> sp_;
 
 public:
     using value_type = boost::asio::const_buffer;

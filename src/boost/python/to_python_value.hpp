@@ -120,9 +120,9 @@ struct object_manager_get_pytype<true>
     PyTypeObject const* get_pytype(boost::type<const shared_ptr<U> &> *) const {return converter::registered<U>::converters.to_python_target_type();}
 # if !defined(BOOST_NO_CXX11_SMART_PTR)
     template <class U>
-    PyTypeObject const* get_pytype(boost::type<std::shared_ptr<U> &> *) const {return converter::registered<U>::converters.to_python_target_type();}
+    PyTypeObject const* get_pytype(boost::type<boost::shared_ptr<U> &> *) const {return converter::registered<U>::converters.to_python_target_type();}
     template <class U>
-    PyTypeObject const* get_pytype(boost::type<const std::shared_ptr<U> &> *) const {return converter::registered<U>::converters.to_python_target_type();}
+    PyTypeObject const* get_pytype(boost::type<const boost::shared_ptr<U> &> *) const {return converter::registered<U>::converters.to_python_target_type();}
 # endif
 #endif
   };

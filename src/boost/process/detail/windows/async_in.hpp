@@ -33,14 +33,14 @@ struct async_in_buffer : ::boost::process::detail::windows::handler_base_ext,
 {
     Buffer & buf;
 
-    std::shared_ptr<std::promise<void>> promise;
+    boost::shared_ptr<std::promise<void>> promise;
     async_in_buffer operator>(std::future<void> & fut)
     {
         promise = std::make_shared<std::promise<void>>();
         fut = promise->get_future(); return std::move(*this);
     }
 
-    std::shared_ptr<boost::process::async_pipe> pipe;
+    boost::shared_ptr<boost::process::async_pipe> pipe;
 
     async_in_buffer(Buffer & buf) : buf(buf)
     {

@@ -23,7 +23,7 @@
 
 namespace boost { namespace typeindex {
 
-/// \brief Creates a new instance of std::shared_ptr whose stored pointer is obtained from u's
+/// \brief Creates a new instance of boost::shared_ptr whose stored pointer is obtained from u's
 /// stored pointer using a runtime_cast.
 ///
 /// The new shared_ptr will share ownership with u, except that it is empty if the runtime_cast

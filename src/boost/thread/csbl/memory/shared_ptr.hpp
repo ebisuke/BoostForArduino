@@ -33,7 +33,7 @@ namespace boost
 {
   namespace csbl
   {
-    using std::shared_ptr;
+    using boost::shared_ptr;
     using std::make_shared;
   }
 }

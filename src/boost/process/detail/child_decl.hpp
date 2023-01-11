@@ -45,7 +45,7 @@ using ::boost::process::detail::api::pid_t;
 class child
 {
     ::boost::process::detail::api::child_handle _child_handle;
-    std::shared_ptr<std::atomic<int>> _exit_status = std::make_shared<std::atomic<int>>(::boost::process::detail::api::still_active);
+    boost::shared_ptr<std::atomic<int>> _exit_status = std::make_shared<std::atomic<int>>(::boost::process::detail::api::still_active);
     bool _attached = true;
     bool _terminated = false;
 
@@ -56,8 +56,8 @@ class child
 public:
     typedef ::boost::process::detail::api::child_handle child_handle;
     typedef child_handle::process_handle_t native_handle_t;
-    explicit child(child_handle &&ch, std::shared_ptr<std::atomic<int>> &ptr) : _child_handle(std::move(ch)), _exit_status(ptr) {}
-    explicit child(child_handle &&ch, const std::shared_ptr<std::atomic<int>> &ptr) : _child_handle(std::move(ch)), _exit_status(ptr) {}
+    explicit child(child_handle &&ch, boost::shared_ptr<std::atomic<int>> &ptr) : _child_handle(std::move(ch)), _exit_status(ptr) {}
+    explicit child(child_handle &&ch, const boost::shared_ptr<std::atomic<int>> &ptr) : _child_handle(std::move(ch)), _exit_status(ptr) {}
     explicit child(child_handle &&ch) : _child_handle(std::move(ch)) {}
 
     explicit child(pid_t & pid) : _child_handle(pid), _attached(false) {};

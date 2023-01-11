@@ -42,7 +42,7 @@ public:
     Real operator()(Real x) const;
 
 private:
-    std::shared_ptr<detail::barycentric_rational_imp<Real>> m_imp;
+    boost::shared_ptr<detail::barycentric_rational_imp<Real>> m_imp;
 };
 
 template <class Real>

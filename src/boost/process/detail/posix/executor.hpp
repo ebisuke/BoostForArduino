@@ -320,7 +320,7 @@ public:
     bool cmd_style = false;
     char **env      = ::environ;
     pid_t pid = -1;
-    std::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
+    boost::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
 
     const std::error_code & error() const {return _ec;}
 

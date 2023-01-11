@@ -32,8 +32,8 @@ namespace asio {
 namespace detail {
 
 #if defined(BOOST_ASIO_HAS_STD_SHARED_PTR)
-using std::shared_ptr;
-using std::weak_ptr;
+using boost::shared_ptr;
+using boost::weak_ptr;
 #else // defined(BOOST_ASIO_HAS_STD_SHARED_PTR)
 using boost::shared_ptr;
 using boost::weak_ptr;

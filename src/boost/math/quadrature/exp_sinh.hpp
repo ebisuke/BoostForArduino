@@ -35,7 +35,7 @@ public:
     Real integrate(const F& f, Real tol = boost::math::tools::root_epsilon<Real>(), Real* error = nullptr, Real* L1 = nullptr, std::size_t* levels = nullptr) const;
 
 private:
-    std::shared_ptr<detail::exp_sinh_detail<Real, Policy>> m_imp;
+    boost::shared_ptr<detail::exp_sinh_detail<Real, Policy>> m_imp;
 };
 
 template<class Real, class Policy>

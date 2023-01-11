@@ -46,7 +46,7 @@ class helper_collection
     > helper_value_type;
     template<class T>
     boost::shared_ptr<void> make_helper_ptr(){
-        // use boost::shared_ptr rather than std::shared_ptr to maintain
+        // use boost::shared_ptr rather than boost::shared_ptr to maintain
         // c++03 compatibility
         return boost::make_shared<T>();
     }

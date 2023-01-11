@@ -183,7 +183,7 @@ inline void serialize(
 } // namespace boost
 
 /////////1/////////2/////////3/////////4/////////5/////////6/////////7/////////8
-// std::shared_ptr serialization traits
+// boost::shared_ptr serialization traits
 // version 1 to distinguish from boost 1.32 version. Note: we can only do this
 // for a template when the compiler supports partial template specialization
 
@@ -200,14 +200,14 @@ inline void serialize(
 namespace boost {
 namespace serialization{
     template<class T>
-    struct version< ::std::shared_ptr< T > > {
+    struct version< ::boost::shared_ptr< T > > {
         typedef mpl::integral_c_tag tag;
         typedef mpl::int_<1> type;
         BOOST_STATIC_CONSTANT(int, value = type::value);
     };
     // don't track shared pointers
     template<class T>
-    struct tracking_level< ::std::shared_ptr< T > > { 
+    struct tracking_level< ::boost::shared_ptr< T > > {
         typedef mpl::integral_c_tag tag;
         typedef mpl::int_< ::boost::serialization::track_never> type;
         BOOST_STATIC_CONSTANT(int, value = type::value);
@@ -220,12 +220,12 @@ namespace boost {
 namespace serialization{
 
 /////////1/////////2/////////3/////////4/////////5/////////6/////////7/////////8
-// serialization for std::shared_ptr
+// serialization for boost::shared_ptr
 
 template<class Archive, class T>
 inline void save(
     Archive & ar,
-    const std::shared_ptr< T > &t,
+    const boost::shared_ptr< T > &t,
     const unsigned int /* file_version */
 ){
     // The most common cause of trapping here would be serializing
@@ -239,7 +239,7 @@ inline void save(
 template<class Archive, class T>
 inline void load(
     Archive & ar,
-    std::shared_ptr< T > &t,
+    boost::shared_ptr< T > &t,
     const unsigned int /*file_version*/
 ){
     // The most common cause of trapping here would be serializing
@@ -248,10 +248,10 @@ inline void load(
     BOOST_STATIC_ASSERT((tracking_level< T >::value != track_never));
     T* r;
     ar >> boost::serialization::make_nvp("px", r);
-    //void (* const id)(Archive &, std::shared_ptr< T > &, const unsigned int) = & load;
-    boost::serialization::shared_ptr_helper<std::shared_ptr> & h =
+    //void (* const id)(Archive &, boost::shared_ptr< T > &, const unsigned int) = & load;
+    boost::serialization::shared_ptr_helper<boost::shared_ptr> & h =
         ar.template get_helper<
-            shared_ptr_helper<std::shared_ptr>
+            shared_ptr_helper<boost::shared_ptr>
         >(
             shared_ptr_helper_id
         );
@@ -261,7 +261,7 @@ inline void load(
 template<class Archive, class T>
 inline void serialize(
     Archive & ar,
-    std::shared_ptr< T > &t,
+    boost::shared_ptr< T > &t,
     const unsigned int file_version
 ){
     // correct shared_ptr serialization depends upon object tracking

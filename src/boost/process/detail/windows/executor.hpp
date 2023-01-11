@@ -167,7 +167,7 @@ class executor : public startup_info_impl<Char>
 
 public:
 
-    std::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
+    boost::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
 
     executor(Sequence & seq) : seq(seq)
     {

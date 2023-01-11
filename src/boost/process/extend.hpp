@@ -242,7 +242,7 @@ struct posix_executor
      ///The pid of the process - it will be -1 before invoking [fork](http://pubs.opengroup.org/onlinepubs/009695399/functions/fork.html), and after forking either 0 for the new process or a positive value if in the current process. */
      pid_t pid = -1;
      ///This shared-pointer holds the exit code. It's done this way, so it can be shared between an `asio::io_context` and \ref child.
-     std::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
+     boost::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
 
      ///This function returns a const reference to the error state of the executor.
      const std::error_code & error() const;
@@ -303,7 +303,7 @@ struct windows_executor
 
 
      ///This shared-pointer holds the exit code. It's done this way, so it can be shared between an `asio::io_context` and \ref child.
-     std::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
+     boost::shared_ptr<std::atomic<int>> exit_status = std::make_shared<std::atomic<int>>(still_active);
 
      ///This function returns a const reference to the error state of the executor.
      const std::error_code & error() const;

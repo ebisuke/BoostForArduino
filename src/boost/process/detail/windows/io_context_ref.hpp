@@ -123,12 +123,12 @@ struct io_context_ref : boost::process::detail::handler_base
     {
         std::vector<std::function<void(int, const std::error_code & ec)>> funcs;
         std::unique_ptr<boost::asio::windows::object_handle> handle;
-        std::shared_ptr<std::atomic<int>> exit_status;
+        boost::shared_ptr<std::atomic<int>> exit_status;
         wait_handler(const wait_handler & ) = delete;
         wait_handler(wait_handler && ) = default;
         wait_handler(std::vector<std::function<void(int, const std::error_code & ec)>> && funcs,
                      boost::asio::io_context & ios, void * handle,
-                     const std::shared_ptr<std::atomic<int>> &exit_status)
+                     const boost::shared_ptr<std::atomic<int>> &exit_status)
                 : funcs(std::move(funcs)),
                   handle(new boost::asio::windows::object_handle(ios, handle)),
                   exit_status(exit_status)

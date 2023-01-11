@@ -46,7 +46,7 @@ public:
     Real prime(Real x) const;
 
 private:
-    std::shared_ptr<detail::cubic_b_spline_imp<Real>> m_imp;
+    boost::shared_ptr<detail::cubic_b_spline_imp<Real>> m_imp;
 };
 
 template<class Real>

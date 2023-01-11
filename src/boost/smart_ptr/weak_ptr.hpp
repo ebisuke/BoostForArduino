@@ -189,7 +189,7 @@ public:
         return pn.use_count() == 0;
     }
 
-    bool _empty() const BOOST_SP_NOEXCEPT // extension, not in std::weak_ptr
+    bool _empty() const BOOST_SP_NOEXCEPT // extension, not in boost::weak_ptr
     {
         return pn.empty();
     }

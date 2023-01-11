@@ -109,7 +109,7 @@ class chunk_header
         boost::asio::const_buffer,   // chunk-extensions
         chunk_crlf>;                    // CRLF
 
-    std::shared_ptr<
+    boost::shared_ptr<
         detail::chunk_extensions> exts_;
     view_type view_;
 
@@ -290,7 +290,7 @@ class chunk_body
         ConstBufferSequence,            // chunk-body
         chunk_crlf>;                    // CRLF
 
-    std::shared_ptr<
+    boost::shared_ptr<
         detail::chunk_extensions> exts_;
     view_type view_;
 
@@ -480,7 +480,7 @@ class chunk_last
     buffers_type
     prepare(Trailer const& trailer, std::false_type);
 
-    std::shared_ptr<void> sp_;
+    boost::shared_ptr<void> sp_;
     view_type view_;
 
 public:
